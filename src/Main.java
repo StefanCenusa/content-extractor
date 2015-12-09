@@ -25,7 +25,7 @@ public class Main {
             pdfStripper = new PDFTextStripper();
             pdDoc = new PDDocument(cosDoc);
             parsedText = pdfStripper.getText(pdDoc);
-            System.out.println(parsedText.replaceAll("[/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/]", ""));
+            System.out.println(parsedText.replaceAll("@(https?|ftp)://(-\\.)?([^\\s/?\\.#-]+\\.?)+(/[^\\s]*)?$@iS", ""));
         } catch (Exception e) {
             e.printStackTrace();
             try {
